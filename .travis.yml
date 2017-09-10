@@ -9,6 +9,10 @@ before_script:
     - echo "Before script"
 script:
     - echo "At script"
+    - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then echo "This is a PR"; fi'
+    - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then echo "This is not a PR"; fi'
+    - 'if [ "$TRAVIS_TAG" != "" ]; then echo "This is a tag and its name is: >> $TRAVIS_TAG << "; fi'
+    - 'if [ "$TRAVIS_PULL_REQUEST" == “false” ]] && [[ "$TRAVIS_BRANCH" == “master” ]]; then echo "Build is Merged into master"; fi'
 after_script:
     - echo "After script"
 after_success:
@@ -24,3 +28,8 @@ before_deploy:
 before_cache:
     - echo "Before cache is triggered"
 
+env:
+#  - DB=mongodb
+  - SH=bash
+  - PACKAGE_VERSION="1.0.*"
+  - MY_VAR=val1 MY_VAR2=val2
