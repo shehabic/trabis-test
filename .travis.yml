@@ -2,25 +2,25 @@ language: php
 php:
   - 7.1
 before_install:
-    - echo "Before intall"
+    - echo "$PREFIX Before intall"
 install:
-    - echo "At Install"
+    - echo "$PREFIX At Install"
 before_script:
-    - echo "Before script"
+    - echo "$PREFIX Before script"
 script:
-    - echo "At script"
-    - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then echo "This is a PR, it is: $TRAVIS_PULL_REQUEST"; fi'
-    - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then echo "This is not a PR"; fi'
-    - 'if [ "$TRAVIS_TAG" != "" ]; then echo "This is a tag and its name is: >> $TRAVIS_TAG << "; fi'
-    - 'if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then echo "Build is Merged into master"; fi'
+    - echo "$PREFIX At script"
+    - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then echo "$PREFIX This is a PR, it is: $TRAVIS_PULL_REQUEST"; fi'
+    - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then echo "$PREFIX This is not a PR"; fi'
+    - 'if [ "$TRAVIS_TAG" != "" ]; then echo "$PREFIX This is a tag and its name is: >> $TRAVIS_TAG << "; fi'
+    - 'if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then echo "$PREFIX Build is Merged into master"; fi'
 after_script:
-    - echo "After script"
+    - echo "$PREFIX After script"
 after_success:
-    - echo "After success"
+    - echo "$PREFIX After success"
 after_failure:
-    - echo "After failure"
+    - echo "$PREFIX After failure"
 before_deploy:
-    - echo "After deploy"
+    - echo "$PREFIX After deploy"
 #deploy:
 #    provider: ....
 #after_deploy:
@@ -29,5 +29,4 @@ before_cache:
     - echo "Before cache is triggered"
 
 env:
-#  - DB=mongodb
-  - SH=bash
+  - PREFIX=" >---Output---> "
