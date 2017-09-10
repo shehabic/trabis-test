@@ -17,10 +17,10 @@ after_failure:
     - echo "After failure"
 before_deploy:
     - echo "After deploy"
-deploy:
-    - echo "At deploy"
-after_deploy:
-    - echo "After deploy"
+#deploy:
+#    provider: ....
+#after_deploy:
+#    - echo "After deploy"
 before_cache:
-    - echo "Before cache"
+    - echo "Before cache is triggered"
 
