@@ -12,7 +12,7 @@ script:
     - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then echo "$PREFIX This is a PR, it is: $TRAVIS_PULL_REQUEST"; fi'
     - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then echo "$PREFIX This is not a PR"; fi'
     - 'if [ "$TRAVIS_TAG" != "" ]; then echo "$PREFIX This is a tag and its name is: >> $TRAVIS_TAG << "; fi'
-    - 'if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then echo "$PREFIX Build is Merged into master"; fi'
+    - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ]; then echo "$PREFIX Build is Merged into master"; fi'
 after_script:
     - 'echo "$PREFIX After script"'
 after_success:
